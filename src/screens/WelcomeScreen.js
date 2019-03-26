@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
-import Icon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components';
 import Card from '../components/common/card';
+import { NotificationIcon } from '../components/icon/Icons';
 import { Colors, Fonts, Images } from '../themes';
 
 class WelcomeScreen extends Component {
@@ -19,15 +19,15 @@ class WelcomeScreen extends Component {
               <Avatar source={Images.avatar} />
               <Title>Welcome back,</Title>
               <Name>Radi</Name>
-              <Icon name="ios-notifications" />
+              <NotificationIcon
+                style={{ position: 'absolute', right: 20, top: 5 }}
+              />
             </TitleBar>
             <SubTitle>Continue Learning</SubTitle>
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
-              style={{
-                paddingBottom: 30
-              }}
+              style={{ paddingBottom: 30 }}
             >
               <Card
                 title="Styled Components"
