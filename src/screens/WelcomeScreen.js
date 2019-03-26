@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
 import styled from 'styled-components';
 import Card from '../components/common/card';
-import { NotificationIcon } from '../components/icon/Icons';
+import { NotificationIcon } from '../components/icon';
 import { Colors, Fonts, Images } from '../themes';
+import Logo from '../components/logo';
 
 class WelcomeScreen extends Component {
   static navigationOptions = () => ({
@@ -23,6 +24,19 @@ class WelcomeScreen extends Component {
                 style={{ position: 'absolute', right: 20, top: 5 }}
               />
             </TitleBar>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              style={{
+                flexDirection: 'row',
+                padding: 20,
+                paddingLeft: 12,
+                paddingTop: 30
+              }}
+            >
+              <Logo image={Images.logoFramerx} text="Framer X" />
+              <Logo image={Images.logoFigma} text="Figma" />
+            </ScrollView>
             <SubTitle>Continue Learning</SubTitle>
             <ScrollView
               horizontal
@@ -67,7 +81,7 @@ const SubTitle = styled.Text`
   font-weight: 600;
   font-size: 15px;
   margin-left: 20px;
-  margin-top: 50px;
+  margin-top: 10px;
   /* text-transform: uppercase; (issue / error) */
 `;
 
