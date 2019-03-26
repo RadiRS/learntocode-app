@@ -1,4 +1,4 @@
-package com.react_native_boilerplate;
+package com.designcode;
 
 import android.app.Application;
 

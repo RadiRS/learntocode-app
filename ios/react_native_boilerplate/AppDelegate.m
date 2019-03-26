@@ -19,7 +19,7 @@
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index" fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
-                                                      moduleName:@"react_native_boilerplate"
+                                                      moduleName:@"designcode"
                                                initialProperties:nil
                                                    launchOptions:launchOptions];
   rootView.backgroundColor = [UIColor blackColor];
