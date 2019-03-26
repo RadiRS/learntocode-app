@@ -1,30 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Images } from '../../../themes';
 
-const Card = () => (
-  <Container>
-    <Cover>
-      <Image source={Images.background2} />
-      <Title>Styled Components</Title>
-    </Cover>
-    <Content>
-      <Logo source={Images.logo} />
-      <Wrapper>
-        <Caption>React Native</Caption>
-        <SubTitle>5 of 12 section</SubTitle>
-      </Wrapper>
-    </Content>
-  </Container>
-);
+const Card = props => {
+  const { image, title, logo, caption, subTitle } = props;
+
+  return (
+    <Container>
+      <Cover>
+        <Image source={image} />
+        <Title>{title}</Title>
+      </Cover>
+      <Content>
+        <Logo source={logo} />
+        <Wrapper>
+          <Caption>{caption}</Caption>
+          <SubTitle>{subTitle}</SubTitle>
+        </Wrapper>
+      </Content>
+    </Container>
+  );
+};
 
 const Container = styled.View`
   background: white;
   width: 315px;
   height: 280px;
   border-radius: 14px;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin: 20px 0px 20px 20px;
   elevation: 10;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
 `;

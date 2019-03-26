@@ -6,6 +6,7 @@
 const images = {
   logo: require('../images/logo-react.png'),
   avatar: require('../images/avatar.jpg'),
+  background1: require('../images/background1.jpg'),
   background2: require('../images/background2.jpg')
 };
 

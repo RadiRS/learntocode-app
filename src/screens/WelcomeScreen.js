@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { ScrollView, SafeAreaView } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import styled from 'styled-components';
 import Card from '../components/common/card';
 import { Colors, Fonts, Images } from '../themes';
@@ -11,13 +13,39 @@ class WelcomeScreen extends Component {
   render() {
     return (
       <Container>
-        <TitleBar>
-          <Avatar source={Images.avatar} />
-          <Title>Welcome back,</Title>
-          <Name>Radi</Name>
-        </TitleBar>
-        <SubTitle>Continue Learning</SubTitle>
-        <Card />
+        <SafeAreaView>
+          <ScrollView>
+            <TitleBar>
+              <Avatar source={Images.avatar} />
+              <Title>Welcome back,</Title>
+              <Name>Radi</Name>
+              <Icon name="ios-notifications" />
+            </TitleBar>
+            <SubTitle>Continue Learning</SubTitle>
+            <ScrollView
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              style={{
+                paddingBottom: 30
+              }}
+            >
+              <Card
+                title="Styled Components"
+                image={Images.background1}
+                logo={Images.logo}
+                caption="React Native"
+                subTitle="2 of 12 section"
+              />
+              <Card
+                title="Props & Icons"
+                image={Images.background2}
+                logo={Images.logo}
+                caption="React Native"
+                subTitle="3 of 12 section"
+              />
+            </ScrollView>
+          </ScrollView>
+        </SafeAreaView>
       </Container>
     );
   }
