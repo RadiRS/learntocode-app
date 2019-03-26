@@ -1,10 +1,12 @@
 /**
- * Images should be stored in the `App/Images` directory and referenced using variables defined here.
+ * Images should be stored in the `App/Images or other assets folder` directory and referenced using variables defined here.
  */
 
 // leave off @2x/@3x
 const images = {
-  // logo: require('../Images/ir.png'),
+  logo: require('../images/logo-react.png'),
+  avatar: require('../images/avatar.jpg'),
+  background2: require('../images/background2.jpg')
 };
 
 export default images;
