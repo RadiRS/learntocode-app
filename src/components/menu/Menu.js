@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { Animated } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
+
+import { toggleMenu } from '../../stores/actions';
+
 import { Metrics, Images } from '../../themes';
 import MenuItem from './MenuItem';
 
@@ -11,15 +15,23 @@ export class Menu extends Component {
   };
 
   componentDidMount() {
-    Animated.spring(this.state.top, {
-      toValue: 0
-    }).start();
+    this.handleToggleMenu();
+  }
+
+  componentDidUpdate() {
+    this.handleToggleMenu();
   }
 
   handleToggleMenu = () => {
-    Animated.spring(this.state.top, {
-      toValue: Metrics.screenHeight
-    }).start();
+    if (this.props.menu.openMenu) {
+      Animated.spring(this.state.top, {
+        toValue: 54
+      }).start();
+    } else {
+      Animated.spring(this.state.top, {
+        toValue: Metrics.screenHeight
+      }).start();
+    }
   };
 
   render() {
@@ -31,7 +43,7 @@ export class Menu extends Component {
           <SubTitle>Engineer at Arkademy</SubTitle>
         </Cover>
 
-        <CloseView onPress={this.handleToggleMenu}>
+        <CloseView onPress={this.props.toggleMenu}>
           <Icon name="ios-close" size={44} color="#546bfb" />
         </CloseView>
 
@@ -51,6 +63,8 @@ export class Menu extends Component {
 }
 
 const Container = styled.View`
+  border-radius: 10;
+  overflow: hidden;
   position: absolute;
   background: white;
   width: 100%;
@@ -106,7 +120,18 @@ const Content = styled.View`
   padding: 50px;
 `;
 
-export default Menu;
+const mapStateToProps = ({ menu }) => ({
+  menu
+});
+
+const mapDispatchToProps = {
+  toggleMenu
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Menu);
 
 const menus = [
   {
