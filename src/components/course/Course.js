@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Metrics } from '../../themes';
 
 const Course = props => (
   <Container>
@@ -18,7 +19,7 @@ const Course = props => (
 );
 
 const Container = styled.TouchableOpacity`
-  width: 335px;
+  width: ${Metrics.screenWidth - 40};
   height: 335px;
   background: white;
   margin: 10px 20px;

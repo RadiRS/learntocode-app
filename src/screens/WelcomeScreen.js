@@ -3,6 +3,7 @@ import { ScrollView, SafeAreaView } from 'react-native';
 import styled from 'styled-components';
 
 import Card from '../components/common/card';
+import Menu from '../components/menu';
 import Course from '../components/course';
 import { NotificationIcon } from '../components/icon';
 import { Colors, Fonts, Images } from '../themes';
@@ -17,12 +18,13 @@ class WelcomeScreen extends Component {
   render() {
     return (
       <Container>
+        <Menu />
         <SafeAreaView>
           <ScrollView showsVerticalScrollIndicator={false}>
             <TitleBar>
               <Avatar source={Images.avatar} />
               <Title>Welcome back,</Title>
-              <Name>Radi</Name>
+              <Name>Radi Rusadi</Name>
               <NotificationIcon
                 style={{ position: 'absolute', right: 20, top: 5 }}
               />
