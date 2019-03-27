@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { ScrollView, SafeAreaView } from 'react-native';
 import styled from 'styled-components';
+
 import Card from '../components/common/card';
+import Course from '../components/course';
 import { NotificationIcon } from '../components/icon';
 import { Colors, Fonts, Images } from '../themes';
 import Logo from '../components/logo';
+import images from '../themes/images';
 
 class WelcomeScreen extends Component {
   static navigationOptions = () => ({
@@ -15,7 +18,7 @@ class WelcomeScreen extends Component {
     return (
       <Container>
         <SafeAreaView>
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             <TitleBar>
               <Avatar source={Images.avatar} />
               <Title>Welcome back,</Title>
@@ -24,6 +27,7 @@ class WelcomeScreen extends Component {
                 style={{ position: 'absolute', right: 20, top: 5 }}
               />
             </TitleBar>
+
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
@@ -34,30 +38,44 @@ class WelcomeScreen extends Component {
                 paddingTop: 30
               }}
             >
-              <Logo image={Images.logoFramerx} text="Framer X" />
-              <Logo image={Images.logoFigma} text="Figma" />
+              {logos.map((logo, index) => (
+                <Logo key={index} image={logo.image} text={logo.text} />
+              ))}
             </ScrollView>
+
             <SubTitle>Continue Learning</SubTitle>
+
             <ScrollView
               horizontal
               showsHorizontalScrollIndicator={false}
               style={{ paddingBottom: 30 }}
             >
-              <Card
-                title="Styled Components"
-                image={Images.background1}
-                logo={Images.logo}
-                caption="React Native"
-                subTitle="2 of 12 section"
-              />
-              <Card
-                title="Props & Icons"
-                image={Images.background2}
-                logo={Images.logo}
-                caption="React Native"
-                subTitle="3 of 12 section"
-              />
+              {cards.map((card, index) => (
+                <Card
+                  key={index}
+                  title={card.title}
+                  image={card.image}
+                  logo={card.logo}
+                  caption={card.caption}
+                  subTitle={card.subTitle}
+                />
+              ))}
             </ScrollView>
+
+            <SubTitle>Populer Course</SubTitle>
+
+            {courses.map((course, index) => (
+              <Course
+                key={index}
+                image={course.image}
+                logo={course.logo}
+                subTitle={course.subtitle}
+                title={course.title}
+                avatar={course.avatar}
+                caption={course.caption}
+                author={course.author}
+              />
+            ))}
           </ScrollView>
         </SafeAreaView>
       </Container>
@@ -109,3 +127,101 @@ const Name = styled.Text`
 `;
 
 export default WelcomeScreen;
+
+const logos = [
+  {
+    image: images.logoFigma,
+    text: 'Figma'
+  },
+  {
+    image: images.logoFramerx,
+    text: 'Frame X'
+  },
+  {
+    image: images.logoStudio,
+    text: 'Studio'
+  },
+  {
+    image: images.logoReact,
+    text: 'React'
+  },
+  {
+    image: images.logoSwift,
+    text: 'Swift'
+  },
+  {
+    image: images.logoSketch,
+    text: 'Sketch'
+  }
+];
+
+const cards = [
+  {
+    title: 'React Native for designer',
+    image: images.background11,
+    subTitle: 'React Native',
+    caption: '1 of 12 Section',
+    logo: images.logoReact
+  },
+  {
+    title: 'Styled Components',
+    image: images.background12,
+    subTitle: 'React Native',
+    caption: '2 of 12 Section',
+    logo: images.logoReact
+  },
+  {
+    title: 'Props and Icons',
+    image: images.background13,
+    subTitle: 'React Native',
+    caption: '3 of 12 Section',
+    logo: images.logoReact
+  },
+  {
+    title: 'Static Data and Loop',
+    image: images.background14,
+    subTitle: 'React Native',
+    caption: '4 of 12 Section',
+    logo: images.logoReact
+  }
+];
+
+const courses = [
+  {
+    title: 'Prototype in InVision Studio',
+    subtitle: '10 Sections',
+    image: images.background13,
+    logo: images.logoStudio,
+    author: 'Raiza Ro',
+    avatar: images.avatar,
+    caption: 'Design and interactive prototype'
+  },
+  {
+    title: 'React for Designers',
+    subtitle: '12 Sections',
+    image: images.background11,
+    logo: images.logoReact,
+    author: 'Bambang Ok',
+    avatar: images.avatar,
+    caption: 'Learn to design and code a React site'
+  },
+  {
+    title: 'Design and Code with Framer X',
+    subtitle: '10 Sections',
+    image: images.background14,
+    logo: images.logoFramerx,
+    author: 'Steven Jack',
+    avatar: images.avatar,
+    caption: 'Create powerful design and code components for your app'
+  },
+  {
+    title: 'Design System in Figma',
+    subtitle: '10 Sections',
+    image: images.background16,
+    logo: images.logoFigma,
+    author: 'Bella Alyano',
+    avatar: images.avatar,
+    caption:
+      'Complete guide to designing a site using a collaborative design tool'
+  }
+];
