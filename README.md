@@ -1,12 +1,12 @@
-## Boilerplate React Native
+## Learn To Code App
 
-This is a boilerplate for react native project which is include some configuration
+This is a mobile app for learning to code with each other.
 
 ### Tech :
 
 - React Native
 - Redux
-- Redux Thunk
 - React Navigation
-- Native Base
-- Axios
+- Styled Components
+- React Native Vector Icons
+- React Native SVG
