@@ -1,58 +1,85 @@
+import React from 'react';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {
   createStackNavigator,
-  createDrawerNavigator,
-  createSwitchNavigator,
+  createBottomTabNavigator,
   createAppContainer
 } from 'react-navigation';
-// Components
-// import DrawerNavigator from '../components/drawer/DrawerNavigator';
-// Screens
-import { Welcome, Another } from '../screens';
+
+// Screen
+import { Welcome, Section, Course, Project } from '../screens';
+
+const activeColor = '#4775f2';
+const inactiveColor = '#b8bece';
 
 // Home Stack Navigator
-const AppHomeStackNavigator = createStackNavigator({
-  Welcome,
-  Another
+const HomeStackNavigator = createStackNavigator(
+  {
+    Welcome,
+    Section
+  },
+  { mode: 'modal' }
+);
+
+HomeStackNavigator.navigationOptions = ({ navigation }) => {
+  let tabBarVisible = true;
+
+  const routeName = navigation.state.routes[navigation.state.index].routeName;
+
+  if (routeName === 'Section') {
+    tabBarVisible = false;
+  }
+
+  return {
+    tabBarVisible,
+    tabBarIcon: ({ focused }) => (
+      <Icon
+        name="ios-home"
+        size={26}
+        color={focused ? activeColor : inactiveColor}
+      />
+    )
+  };
+};
+
+// Couses Stack Navigator
+const CoursesStackNavigator = createStackNavigator({
+  Course
 });
 
-// Profile Stack Navigator
-// const AppProfileStackNavigator = createStackNavigator({
-//   Profile,
-//   UserProfile,
-//   UpdateProfile
-// });
+CoursesStackNavigator.navigationOptions = {
+  tabBarIcon: ({ focused }) => (
+    <Icon
+      name="ios-albums"
+      size={26}
+      color={focused ? activeColor : inactiveColor}
+    />
+  )
+};
 
-// App Drawer Navigator
-// const AppDrawerNavigator = createDrawerNavigator(
-//   {
-//     Home: {
-//       screen: AppHomeStackNavigator
-//     },
-//     Profile: {
-//       screen: AppProfileStackNavigator
-//     }
-//   },
-//   {
-//     drawerPosition: 'left',
-//     drawerType: 'slide',
-//     drawerWidth: 400,
-//     contentComponent: DrawerNavigator,
-//     drawerOpenRoute: 'DrawerOpen',
-//     drawerCloseRoute: 'DrawerClose',
-//     drawerToogleRoute: 'DrawerToggle'
-//   }
-// );
+// Project Stack Navigator
+const ProjectStactNavigator = createStackNavigator({
+  Project
+});
 
-// App Switch Navigator
-// const AppSwitchNavigator = createSwitchNavigator({
-//   Splash,
-//   AuthMethod,
-//   Signin,
-//   Signup,
-//   AppDrawerNavigator
-// });
+ProjectStactNavigator.navigationOptions = {
+  tabBarIcon: ({ focused }) => (
+    <Icon
+      name="ios-folder"
+      size={26}
+      color={focused ? activeColor : inactiveColor}
+    />
+  )
+};
+
+// Tab Navigator
+const BottomTabNavigator = createBottomTabNavigator({
+  Home: HomeStackNavigator,
+  Courses: CoursesStackNavigator,
+  Porject: ProjectStactNavigator
+});
 
 // App Container
-const AppContainer = createAppContainer(AppHomeStackNavigator);
+const AppContainer = createAppContainer(BottomTabNavigator);
 
 export default AppContainer;

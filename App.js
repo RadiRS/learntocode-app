@@ -4,7 +4,7 @@ import store from './src/stores/store';
 import AppContainerNavigator from './src/navigator/AppNavigator';
 import NavigationService from './src/navigator/NavigationServices';
 
-export default class App extends Component {
+class App extends Component {
   render() {
     return (
       <Provider store={store}>
@@ -17,3 +17,5 @@ export default class App extends Component {
     );
   }
 }
+
+export default App;

@@ -9,15 +9,17 @@ import {
 } from 'react-native';
 import styled from 'styled-components';
 
+// Actions
 import { toggleMenu, getUser } from '../stores/actions';
 
+// Components
 import Card from '../components/common/card';
 import Menu from '../components/menu';
 import Course from '../components/course';
 import Logo from '../components/logo';
 import Avatar from '../components/avatar';
 import { NotificationIcon } from '../components/icon';
-import { Colors, Fonts, Images } from '../themes';
+import { Colors, Fonts } from '../themes';
 import images from '../themes/images';
 
 class WelcomeScreen extends Component {
@@ -63,7 +65,7 @@ class WelcomeScreen extends Component {
   };
 
   render() {
-    const { user } = this.props;
+    const { user, navigation } = this.props;
 
     return (
       <RootView>
@@ -118,14 +120,18 @@ class WelcomeScreen extends Component {
                 style={{ paddingBottom: 30 }}
               >
                 {cards.map((card, index) => (
-                  <Card
+                  <TouchableOpacity
                     key={index}
-                    title={card.title}
-                    image={card.image}
-                    logo={card.logo}
-                    caption={card.caption}
-                    subTitle={card.subTitle}
-                  />
+                    onPress={() => navigation.push('Section')}
+                  >
+                    <Card
+                      title={card.title}
+                      image={card.image}
+                      logo={card.logo}
+                      caption={card.caption}
+                      subTitle={card.subTitle}
+                    />
+                  </TouchableOpacity>
                 ))}
               </ScrollView>
 
@@ -173,7 +179,8 @@ const RootView = styled.View`
 
 const Container = styled.View`
   flex: 1;
-  border-radius: 10;
+  border-top-left-radius: 10;
+  border-top-right-radius: 10;
   background-color: ${Colors.silver};
   overflow: hidden;
 `;

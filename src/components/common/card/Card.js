@@ -21,7 +21,7 @@ const Card = props => {
   );
 };
 
-const Container = styled.TouchableOpacity`
+const Container = styled.View`
   background: white;
   width: 315px;
   height: 280px;
