@@ -5,7 +5,8 @@ import {
   SafeAreaView,
   TouchableOpacity,
   Animated,
-  Easing
+  Easing,
+  StatusBar
 } from 'react-native';
 import styled from 'styled-components';
 
@@ -29,10 +30,13 @@ class WelcomeScreen extends Component {
 
   state = {
     scale: new Animated.Value(1),
-    opacity: new Animated.Value(1)
+    opacity: new Animated.Value(1),
+    radius: new Animated.Value(0)
   };
 
   componentDidMount() {
+    StatusBar.setBackgroundColor(Colors.silver, true);
+    StatusBar.setBarStyle('dark-content');
     this.props.getUser();
   }
 
@@ -51,6 +55,13 @@ class WelcomeScreen extends Component {
       Animated.spring(this.state.opacity, {
         toValue: 0.5
       }).start();
+
+      Animated.spring(this.state.radius, {
+        toValue: 10
+      }).start();
+
+      StatusBar.setBackgroundColor('black', true);
+      StatusBar.setBarStyle('light-content');
     } else {
       Animated.timing(this.state.scale, {
         toValue: 1,
@@ -61,6 +72,13 @@ class WelcomeScreen extends Component {
       Animated.spring(this.state.opacity, {
         toValue: 1
       }).start();
+
+      Animated.spring(this.state.radius, {
+        toValue: 0
+      }).start();
+
+      StatusBar.setBackgroundColor(Colors.silver, true);
+      StatusBar.setBarStyle('dark-content');
     }
   };
 
@@ -73,7 +91,8 @@ class WelcomeScreen extends Component {
         <AnimatedContainer
           style={{
             transform: [{ scale: this.state.scale }],
-            opacity: this.state.opacity
+            opacity: this.state.opacity,
+            borderRadius: this.state.radius
           }}
         >
           <SafeAreaView>
@@ -122,7 +141,9 @@ class WelcomeScreen extends Component {
                 {cards.map((card, index) => (
                   <TouchableOpacity
                     key={index}
-                    onPress={() => navigation.push('Section')}
+                    onPress={() =>
+                      navigation.navigate('Section', { section: card })
+                    }
                   >
                     <Card
                       title={card.title}
@@ -179,8 +200,8 @@ const RootView = styled.View`
 
 const Container = styled.View`
   flex: 1;
-  border-top-left-radius: 10;
-  border-top-right-radius: 10;
+  /* border-top-left-radius: 10;
+  border-top-right-radius: 10; */
   background-color: ${Colors.silver};
   overflow: hidden;
 `;
