@@ -35,12 +35,14 @@ export class Menu extends Component {
   };
 
   render() {
+    const { user } = this.props;
+
     return (
       <AnimatedContainer style={{ top: this.state.top }}>
         <Cover>
           <Image source={Images.background2} />
-          <Title>Radi Rusadi</Title>
-          <SubTitle>Engineer at Arkademy</SubTitle>
+          <Title>{user.name}</Title>
+          <SubTitle>{user.email}</SubTitle>
         </Cover>
 
         <CloseView onPress={this.props.toggleMenu}>

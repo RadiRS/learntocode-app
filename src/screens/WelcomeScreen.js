@@ -9,14 +9,15 @@ import {
 } from 'react-native';
 import styled from 'styled-components';
 
-import { toggleMenu } from '../stores/actions';
+import { toggleMenu, getUser } from '../stores/actions';
 
 import Card from '../components/common/card';
 import Menu from '../components/menu';
 import Course from '../components/course';
+import Logo from '../components/logo';
+import Avatar from '../components/avatar';
 import { NotificationIcon } from '../components/icon';
 import { Colors, Fonts, Images } from '../themes';
-import Logo from '../components/logo';
 import images from '../themes/images';
 
 class WelcomeScreen extends Component {
@@ -28,6 +29,10 @@ class WelcomeScreen extends Component {
     scale: new Animated.Value(1),
     opacity: new Animated.Value(1)
   };
+
+  componentDidMount() {
+    this.props.getUser();
+  }
 
   componentDidUpdate() {
     this.handleTogleMenu();
@@ -58,9 +63,11 @@ class WelcomeScreen extends Component {
   };
 
   render() {
+    const { user } = this.props;
+
     return (
       <RootView>
-        <Menu />
+        <Menu user={user} />
         <AnimatedContainer
           style={{
             transform: [{ scale: this.state.scale }],
@@ -79,10 +86,10 @@ class WelcomeScreen extends Component {
                     left: 0
                   }}
                 >
-                  <Avatar source={Images.avatar} />
+                  <Avatar photo={user.photo} />
                 </TouchableOpacity>
                 <Title>Welcome back,</Title>
-                <Name>Radi Rusadi</Name>
+                <Name>{user.name}</Name>
                 <NotificationIcon
                   style={{ position: 'absolute', right: 20, top: 5 }}
                 />
@@ -144,12 +151,14 @@ class WelcomeScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ menu }) => ({
-  menu
+const mapStateToProps = ({ menu, user }) => ({
+  menu,
+  user: user.user
 });
 
 const mapDispatchToProps = {
-  toggleMenu
+  toggleMenu,
+  getUser
 };
 
 export default connect(
@@ -186,12 +195,12 @@ const SubTitle = styled.Text`
   /* text-transform: uppercase; (issue / error) */
 `;
 
-const Avatar = styled.Image`
-  width: 44px;
-  height: 44px;
-  background: black;
-  border-radius: 22px;
-`;
+// const Avatar = styled.Image`
+//   width: 44px;
+//   height: 44px;
+//   background: black;
+//   border-radius: 22px;
+// `;
 
 const Title = styled.Text`
   font-size: ${Fonts.size.regular};
