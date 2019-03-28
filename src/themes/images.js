@@ -5,6 +5,11 @@
 // leave off @2x/@3x
 const images = {
   logo: require('../images/logo-react.png'),
+  logoNet: require('../images/logo-net.png'),
+  logoNodejs: require('../images/logo-nodejs.png'),
+  logoPhp: require('../images/logo-php.png'),
+  logoPython: require('../images/logo-python.png'),
+  logoRuby: require('../images/logo-ruby.png'),
   logoFramerx: require('../images/logo-framerx.png'),
   logoFigma: require('../images/logo-figma.png'),
   logoStudio: require('../images/logo-studio.png'),
@@ -27,7 +32,16 @@ const images = {
   background13: require('../images/background13.jpg'),
   background14: require('../images/background14.jpg'),
   background15: require('../images/background15.jpg'),
-  background16: require('../images/background16.jpg')
+  background16: require('../images/background16.jpg'),
+  background17: require('../images/background17.jpg'),
+  background18: require('../images/background18.jpg'),
+  background19: require('../images/background19.jpg'),
+  background20: require('../images/background20.jpg'),
+  background21: require('../images/background21.jpg'),
+  background22: require('../images/background22.jpg'),
+  background23: require('../images/background23.jpg'),
+  background24: require('../images/background24.jpg'),
+  background25: require('../images/background25.png')
 };
 
 export default images;

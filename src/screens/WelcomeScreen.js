@@ -223,13 +223,6 @@ const SubTitle = styled.Text`
   /* text-transform: uppercase; (issue / error) */
 `;
 
-// const Avatar = styled.Image`
-//   width: 44px;
-//   height: 44px;
-//   background: black;
-//   border-radius: 22px;
-// `;
-
 const Title = styled.Text`
   font-size: ${Fonts.size.regular};
   color: #b8bece;
@@ -243,6 +236,26 @@ const Name = styled.Text`
 `;
 
 const logos = [
+  {
+    image: images.logoNet,
+    text: '.Net'
+  },
+  {
+    image: images.logoNodejs,
+    text: 'NodeJS'
+  },
+  {
+    image: images.logoPhp,
+    text: 'PHP'
+  },
+  {
+    image: images.logoPython,
+    text: 'Python'
+  },
+  {
+    image: images.logoRuby,
+    text: 'Ruby'
+  },
   {
     image: images.logoFigma,
     text: 'Figma'
@@ -271,29 +284,29 @@ const logos = [
 
 const cards = [
   {
-    title: 'React Native for designer',
-    image: images.background11,
+    title: 'Getting Started',
+    image: images.background25,
     subTitle: 'React Native',
     caption: '1 of 12 Section',
     logo: images.logoReact
   },
   {
-    title: 'Styled Components',
-    image: images.background12,
+    title: 'Diving in to the Basics',
+    image: images.background22,
     subTitle: 'React Native',
     caption: '2 of 12 Section',
     logo: images.logoReact
   },
   {
-    title: 'Props and Icons',
-    image: images.background13,
+    title: 'Using Redux with React Native',
+    image: images.background23,
     subTitle: 'React Native',
     caption: '3 of 12 Section',
     logo: images.logoReact
   },
   {
-    title: 'Static Data and Loop',
-    image: images.background14,
+    title: 'Lingking and Using Third Party Library',
+    image: images.background24,
     subTitle: 'React Native',
     caption: '4 of 12 Section',
     logo: images.logoReact
@@ -301,6 +314,69 @@ const cards = [
 ];
 
 const courses = [
+  {
+    title: 'Python for Beginner',
+    subtitle: '11 Sections',
+    image: images.background17,
+    logo: images.logoPython,
+    author: 'Muclics Ahar',
+    avatar: images.avatar,
+    caption: 'Build python game for fun'
+  },
+  {
+    title: 'Front End With ReactJS',
+    subtitle: '22 Sections',
+    image: images.background18,
+    logo: images.logoReact,
+    author: 'Mark Arham',
+    avatar: images.avatar,
+    caption: 'Learn to build web app with ReactJS'
+  },
+  {
+    title: 'Creative Design with Figma',
+    subtitle: '8 Sections',
+    image: images.background19,
+    logo: images.logoFigma,
+    author: 'Ayu Nangsi',
+    avatar: images.avatar,
+    caption: 'Design your journey'
+  },
+  {
+    title: 'NodeJS Complate Course',
+    subtitle: '23 Sections',
+    image: images.background20,
+    logo: images.logoNodejs,
+    author: 'Arya Widoyo',
+    avatar: images.avatar,
+    caption: 'Complete guide to dev to deploy Node App'
+  },
+  {
+    title: 'Java Master',
+    subtitle: '15 Sections',
+    image: images.background21,
+    logo: images.logoReact,
+    author: 'Sulis Tiwa',
+    avatar: images.avatar,
+    caption: 'Learn how to become Java Engineer'
+  },
+  {
+    title: 'Algoritma & Data Structure',
+    subtitle: '11 Sections',
+    image: images.background22,
+    logo: images.logoPhp,
+    author: 'Rendy Ajax',
+    avatar: images.avatar,
+    caption: 'Learn data structure and algoritma in PHP'
+  },
+  {
+    title: 'Native PHP Build Sosial App',
+    subtitle: '13 Sections',
+    image: images.background23,
+    logo: images.logoPhp,
+    author: 'Julio Secar',
+    avatar: images.avatar,
+    caption: 'Building media sosial app with PHP'
+  },
   {
     title: 'Prototype in InVision Studio',
     subtitle: '10 Sections',
