@@ -82,4 +82,4 @@ We use [SemVer](http://semver.org/) for versioning. For the versions available, 
 
 - **Radi Rusadi** - _Initial work_ - [RadiRS](https://github.com/RadiRS)
 
-See also the list of [contributors](https://github.com/RadiRS/rn-pookedex/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/RadiRS/learntocode-app/contributors) who participated in this project.
